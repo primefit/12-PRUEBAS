@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+
+
+  <div id="mapamundi">
+    <img id="kermes" src="world.svg" alt="Kermes">
+    <div id="planeta"></div>
+  </div>
+  <div id="juego-terminado">Juego terminado</div>
+  <button id="lanzar-jabalina">Lanzar Jabalina</button>
+  
+    <div class="kermes__image">
+        <img class="kermes__photo" src="kermes.png" alt="">
+
+    </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const planeta = document.getElementById('planeta');
+      const juegoTerminado = document.getElementById('juego-terminado');
+      const lanzarJabalinaBtn = document.getElementById('lanzar-jabalina');
+
+      let lanzamientos = 0;
+
+      lanzarJabalinaBtn.addEventListener('click', function () {
+        if (lanzamientos < 10) {
+          lanzarJabalina();
+          lanzamientos++;
+        }
+
+        if (lanzamientos === 10) {
+          mostrarJuegoTerminado();
+        }
+      });
+
+      function lanzarJabalina() {
+        const randomX = Math.random() * window.innerWidth;
+        const randomY = Math.random() * window.innerHeight;
+
+        planeta.style.left = `${randomX}px`;
+        planeta.style.top = `${randomY}px`;
+
+        planeta.style.opacity = 0;
+        setTimeout(() => {
+          planeta.style.opacity = 1;
+        }, 10);
+      }
+
+      function mostrarJuegoTerminado() {
+        juegoTerminado.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>

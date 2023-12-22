@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="iris-container">
+        <img id="iris-img" src="iris.jpg" alt="Iris el Egipcio">
+        <button id="button">Hipnotizame</button>
+        
+        <div id="bocadillo">soy un jabali</div>
+    </div>
+
+    <div class="colocar__ojos">
+        <div class="ojos"></div>
+        <div class="ojos--2"></div>
+    </div>
+    
+<script>
+
+
+    const ojos = document.querySelector(".ojos");
+    const ojos2 = document.querySelector(".ojos--2");
+    const button = document.getElementById("button");
+
+    button.addEventListener("click", function() {
+    
+    ojos.style.boxShadow = "0 0 10px 10px rgba(255, 255, 0, 0.5)";
+    ojos.style.filter = "drop-shadow(0 0 10px rgba(255, 255, 0, 0.5)";
+    ojos2.style.boxShadow = "0 0 10px 10px rgba(255, 255, 0, 0.5)";
+    ojos2.style.filter = "drop-shadow(0 0 10px rgba(255, 255, 0, 0.5)";
+    });
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgb(1,0,15);
+            background: linear-gradient(16deg, rgb(87, 28, 165) 0%, rgb(58, 47, 155) 35%, rgb(226, 50, 182) 100%);
+        }
+        #game {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .asterix{
+            width:100px;
+            height:100px;
+            position:absolute;
+            top:306px;
+            right:253px;
+        }
+
+        .colocar__asterix{
+            position:relative;
+        }
+    
+
+        #fightButton {
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            position:absolute;
+            top:153px;
+            left:297px;
+        }
+
+        .colocar__boton{
+            position:relative;
+        }
+
+        .player {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            position:relative;
+            
+        }
+        .player img {
+            width: 300px;
+            height: 300px;
+            margin-right: 20px;
+            border:2px solid black;
+        }
+        .attack {
+            position: absolute;
+            font-size: 20px;
+            background-color: black;
+            color: white;
+            position: absolute;
+            top: 254px;
+            right: 236px;
+        }
+        .winner {
+            padding: 10px;
+            font-size: 71px;
+            font-weight: bold;
+            color: green;
+            position: absolute;
+            top: -82px;
+            right: 6px;
+        }
+
+        .colocar__winner{
+            position:relative;
+        }
+
+
+        .place__points{
+            position: absolute;
+            right: 238px;
+            top: 188px;
+            font-size: 21px;
+        }
+
+        .place__points--2{
+            position: absolute;
+            right: 235px;
+            top: 191px;
+            font-size: 20px;
+        }
+
+        .colocar--fotos{
+            display:flex;
+            justify-content: space-around;
+        }

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game">
+        <div class="colocar__boton">
+            <button id="fightButton" onclick="fight()">FIGHT!</button>
+        </div>
+        
+
+        <div class="colocar--fotos">
+            <div class="player" id="asterix">
+                <img src="asterix.jpg" alt="Asterix">
+                <div class="attack" id="asterixAttack"></div>
+                <div class="place__points">
+                    <div>Puntos: <span id="asterixPoints">0</span></div>
+                </div>
+               
+            </div>
+            <div class="player" id="cilindrix">
+                <img src="cilindrix.jpg" alt="Cilindrix">
+                <div class="attack" id="cilindrixAttack"></div>
+                <div class="place__points--2">
+                    <div>Puntos: <span id="cilindrixPoints">0</span></div>
+                </div>
+               
+            </div>
+        </div>
+        
+        <div class="colocar__winner">
+            <div id="winner" class="winner" style="display: none;"></div>
+        </div>
+        
+    </div>
+
+    <script>
+        const asterix = {
+            image: "url-a-asterix",
+            weapons: {
+                puño: "1",
+                pierna: "2",
+                bofetada: "3",
+                sentadilla: "4",
+                pocion: null
+            }
+        };
+
+        const cilindrix = {
+            image: "url-a-cilindrix",
+            weapons: {
+                llave: "1",
+                luxacion: "2",
+                bofetada: "3",
+                sentadilla: "4"
+            }
+        };
+
+        let asterixPoints = 0;
+        let cilindrixPoints = 0;
+
+        function fight() {
+
+            if (asterixPoints >= 5 || cilindrixPoints >= 5) {
+                endGame();
+                return;
+            }
+            const asterixAttack = Object.keys(asterix.weapons)[Math.floor(Math.random() * Object.keys(asterix.weapons).length)];
+            const cilindrixAttack = Object.keys(cilindrix.weapons)[Math.floor(Math.random() * Object.keys(cilindrix.weapons).length)];
+
+            const asterixAttackValue = asterix.weapons[asterixAttack];
+            const cilindrixAttackValue = cilindrix.weapons[cilindrixAttack];
+
+            document.getElementById('asterixAttack').innerText = `${asterixAttack}: ${asterixAttackValue}`;
+            document.getElementById('cilindrixAttack').innerText = `${cilindrixAttack}: ${cilindrixAttackValue}`;
+
+            if (asterixAttackValue > cilindrixAttackValue) {
+                asterixPoints++;
+            } else if (cilindrixAttackValue > asterixAttackValue) {
+                cilindrixPoints++;
+            }
+
+            
+
+            document.getElementById('asterixPoints').innerText = asterixPoints;
+            document.getElementById('cilindrixPoints').innerText = cilindrixPoints;
+
+            
+        }
+
+        function endGame() {
+            const winner = document.getElementById('winner');
+            const winnerText = asterixPoints > cilindrixPoints ? 'Asterix WINNER!' : 'Cilindrix WINNER!';
+            winner.innerText = winnerText;
+            winner.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
